@@ -1,11 +1,10 @@
 ### Grupo 1
-- Álvaro Garvin
-- Francisco José Jaén
+- Álvaro Garvin @alvarogarvin
+- Francisco José Jaén @franjc2000
 - Joaquín Lopezosa @peneke
 - Manuel de la Fuente @manueljlin
 
 <br>
----
 
 # Trabajo en grupo: App basada en una API REST
 
