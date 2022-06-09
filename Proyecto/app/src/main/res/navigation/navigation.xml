@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listaPelisFragment">
 
+    <fragment
+        android:id="@+id/listaPelisFragment"
+        android:name="com.grupo1.trabajoapirest.listaFragment"
+        android:label="fragment_lista"
+        tools:layout="@layout/fragment_pelis_lista" />
+    <fragment
+        android:id="@+id/actorFragment"
+        android:name="com.grupo1.trabajoapirest.actorFragment"
+        android:label="fragment_actor"
+        tools:layout="@layout/fragment_actor" />
 </navigation>
