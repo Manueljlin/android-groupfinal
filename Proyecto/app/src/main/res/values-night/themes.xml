@@ -1,6 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.TrabajoApiRest" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.TrabajoApiRest" parent="Theme.Material3.DayNight.NoActionBar">
+
+
+
+
+        <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            ANDROID >= 12 (COLORES DINÁMICOS CON MONET)
+            ? Application().onCreate(DynamicColors.applyToActivitiesIfAvailable)
+            ?: Usamos Fallback de abajo
+        :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -9,8 +18,36 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+
+
+
+        <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            SYSTEM UI TRANSPARENTE
+        :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+        <!-- Barra de navegación inferior transparente -->
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
+
+        <!-- Barra de notificaciones superior transparente -->
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+
+        <!-- Prometer a la aplicación que el fondo de la barra -->
+        <item name="android:windowLightStatusBar">
+            true
+        </item>
+
+        <!--
+             Extender la app cuando la pantalla está en horizontal por debajo de
+             la System UI (barra de notificaciones, navbar etc) para evitar que
+             se vea negro. Usamos Insets con Insetter para que el contenido no
+             esté oculto por el SystemUI o los notches
+        -->
+        <item name="android:windowLayoutInDisplayCutoutMode">
+            shortEdges <!-- default, shortEdges, or never -->
+        </item>
     </style>
 </resources>
