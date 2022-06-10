@@ -13,7 +13,7 @@ data class movies(
     @SerializedName("backdrop_path")
     val backdropPath: String?,
     @SerializedName("belongs_to_collection")
-    val belongsToCollection:@RawValue Any? = null,
+    val belongsToCollection:String?,
     @SerializedName("budget")
     val budget: Int?,
     @SerializedName("genres")
@@ -33,7 +33,7 @@ data class movies(
     @SerializedName("popularity")
     val popularity: Double?,
     @SerializedName("poster_path")
-    val posterPath:@RawValue Any? = null,
+    val posterPath:String?,
     @SerializedName("production_companies")
     val productionCompanies: List<ProductionCompany>?,
     @SerializedName("production_countries")

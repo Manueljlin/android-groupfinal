@@ -15,7 +15,7 @@ data class Backdrop(
     @SerializedName("height")
     val height: Int?,
     @SerializedName("iso_639_1")
-    val iso6391: @RawValue Any? = null,
+    val iso6391: String?,
     @SerializedName("vote_average")
     val voteAverage: Int?,
     @SerializedName("vote_count")

@@ -17,11 +17,11 @@ data class actores(
     @SerializedName("birthday")
     val birthday: String?,
     @SerializedName("deathday")
-    val deathday: @RawValue Any? = null,
+    val deathday: String?,
     @SerializedName("gender")
     val gender: Int?,
     @SerializedName("homepage")
-    val homepage:@RawValue Any? = null,
+    val homepage:String?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("imdb_id")
