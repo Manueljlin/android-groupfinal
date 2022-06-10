@@ -4,6 +4,7 @@ package com.grupo1.trabajoapirest.dataclass.Actors
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
+import kotlinx.parcelize.RawValue
 
 @Parcelize
 data class actores(
@@ -16,11 +17,11 @@ data class actores(
     @SerializedName("birthday")
     val birthday: String?,
     @SerializedName("deathday")
-    val deathday: Any?,
+    val deathday: @RawValue Any? = null,
     @SerializedName("gender")
     val gender: Int?,
     @SerializedName("homepage")
-    val homepage: Any?,
+    val homepage:@RawValue Any? = null,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("imdb_id")

@@ -4,6 +4,7 @@ package com.grupo1.trabajoapirest.dataclass.Movies
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
+import kotlinx.parcelize.RawValue
 
 @Parcelize
 data class movies(
@@ -12,7 +13,7 @@ data class movies(
     @SerializedName("backdrop_path")
     val backdropPath: String?,
     @SerializedName("belongs_to_collection")
-    val belongsToCollection: Any?,
+    val belongsToCollection:@RawValue Any? = null,
     @SerializedName("budget")
     val budget: Int?,
     @SerializedName("genres")
@@ -32,7 +33,7 @@ data class movies(
     @SerializedName("popularity")
     val popularity: Double?,
     @SerializedName("poster_path")
-    val posterPath: Any?,
+    val posterPath:@RawValue Any? = null,
     @SerializedName("production_companies")
     val productionCompanies: List<ProductionCompany>?,
     @SerializedName("production_countries")
