@@ -48,7 +48,7 @@ interface RetrofitService {
     suspend fun getPopularMovies(
         @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
-        @Query("page")     page: Int = 0
+        @Query("page")     page: Int = 1
     ): Response<MoviesList>
 
 
@@ -59,7 +59,7 @@ interface RetrofitService {
      * @param movie_id
      * @param api_key?
      * @param language?
-     * @return
+     * @return MovieImages
      *
      * @author Manuel
      * @see <a href="https://developers.themoviedb.org/3/movies/get-popular-movies">Reference</a>
@@ -98,15 +98,15 @@ interface RetrofitService {
      * @param api_key?
      * @param language?
      * @param page?
-     * @return PopularPeople
+     * @return PeopleList
      *
      * @author Manuel
-     * @see <a href="https://developers.themoviedb.org/3/movies/get-popular-movies">Reference</a>
+     * @see <a href="https://developers.themoviedb.org/3/people/get-popular-people">Reference</a>
      */
     @GET("movie/popular")
     suspend fun getPopularPeople(
         @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
-        @Query("page")     page: Int = 0
+        @Query("page")     page: Int = 1
     ): Response<PeopleList>
 }
