@@ -1,4 +1,4 @@
-package com.grupo1.trabajoapirest.dataclass.Person.GetPersonImages
+package com.grupo1.trabajoapirest.dataclass.People.GetPersonImages
 
 
 import com.google.gson.annotations.SerializedName

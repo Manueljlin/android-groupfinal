@@ -1,4 +1,4 @@
-package com.grupo1.trabajoapirest.dataclass.Person.GetPopularPeople
+package com.grupo1.trabajoapirest.dataclass.People.GetPopularPeople
 
 
 import com.google.gson.annotations.SerializedName

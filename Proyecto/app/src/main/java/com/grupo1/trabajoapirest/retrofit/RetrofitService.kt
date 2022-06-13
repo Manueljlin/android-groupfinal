@@ -4,6 +4,8 @@ import com.grupo1.trabajoapirest.API_KEY
 import com.grupo1.trabajoapirest.dataclass.Movies.GetMovieImages.MovieImages
 import com.grupo1.trabajoapirest.dataclass.Movies.Movie
 import com.grupo1.trabajoapirest.dataclass.Movies.MoviesList
+import com.grupo1.trabajoapirest.dataclass.People.GetPersonDetails.Person
+import com.grupo1.trabajoapirest.dataclass.People.GetPopularPeople.PeopleList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -42,7 +44,7 @@ interface RetrofitService {
      * @author Manuel
      * @see <a href="https://developers.themoviedb.org/3/movies/get-popular-movies">Reference</a>
      */
-    @GET("movie/popular/{page}")
+    @GET("movie/popular")
     suspend fun getPopularMovies(
         @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
@@ -68,4 +70,43 @@ interface RetrofitService {
         @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
     ): Response<MovieImages>
+
+
+//
+//  PEOPLE :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
+    /**
+     * Get Person Details
+     * @param person_id
+     * @param api_key?
+     * @param language?
+     * @return Person
+     *
+     * @author Manuel
+     * @see <a href="https://developers.themoviedb.org/3/people/get-person-details">Reference</a>
+     */
+    @GET("person/{person_id}")
+    suspend fun getPersonDetails(
+        @Path("person_id") person_id: Int,
+        @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
+        @Query("language") language: String = "es-ES"
+    ): Response<Person>
+
+
+    /**
+     * Get Popular People
+     * @param api_key?
+     * @param language?
+     * @param page?
+     * @return PopularPeople
+     *
+     * @author Manuel
+     * @see <a href="https://developers.themoviedb.org/3/movies/get-popular-movies">Reference</a>
+     */
+    @GET("movie/popular")
+    suspend fun getPopularPeople(
+        @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
+        @Query("language") language: String = "es-ES",
+        @Query("page")     page: Int = 0
+    ): Response<PeopleList>
 }

@@ -1,4 +1,4 @@
-package com.grupo1.trabajoapirest.dataclass.Person.GetPersonDetails
+package com.grupo1.trabajoapirest.dataclass.People.GetPersonDetails
 
 
 import com.google.gson.annotations.SerializedName
@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class PersonDetails(
+data class Person(
     @SerializedName("adult")
     val adult: Boolean?,
     @SerializedName("also_known_as")
