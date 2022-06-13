@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grupo1.trabajoapirest.databinding.FragmentPelisListaBinding
 import com.grupo1.trabajoapirest.dataclass.Movies.Movie
@@ -17,15 +18,13 @@ class listaPelisFragment: Fragment() {
 
 	private lateinit var binding: FragmentPelisListaBinding
 	private lateinit var adapter: PelisAdapter
-	private val pelisVm: PelisViewModel by activityViewModels<PelisViewModel> {
-		PelisViewModel.MyViewModelFactory(requireActivity().application)
-	}
+	private val pelisVm: PelisViewModel by activityViewModels()
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		setHasOptionsMenu(true)
 		binding = FragmentPelisListaBinding.inflate(inflater,container, false)
 		(requireActivity() as MainActivity).changeToolbar(binding.toolbar, false)
-		(requireActivity() as MainActivity).changeToolbarTitle("App de Cine")
+		(requireActivity() as MainActivity).changeToolbarTitle("Películas")
 		return binding.root
 	}
 
@@ -34,13 +33,13 @@ class listaPelisFragment: Fragment() {
 
 		configRecycler()
 
+		pelisVm.getPopularMovies(0)
 		pelisVm.popularMovies.observe(viewLifecycleOwner){
 			adapter.actualizaLista(it.results as ArrayList<Movie>)
 		}
 	}
 
 	private fun configRecycler() {
-
 		val recyclerView = binding.rvPelis
 		adapter = PelisAdapter(object : PelisAdapter.PeliClickListener{
 			override fun OnClick(peli: Movie) {
@@ -48,7 +47,12 @@ class listaPelisFragment: Fragment() {
 				//findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 			}
 		})
-		val layoutManager = LinearLayoutManager(requireContext())
+		val layoutManager = GridLayoutManager(
+			requireContext(),
+			2,
+			GridLayoutManager.VERTICAL,
+			false
+		)
 		recyclerView.layoutManager = layoutManager
 		recyclerView.adapter = adapter
 	}

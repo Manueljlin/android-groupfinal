@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listaPelisFragment"
-        android:name="com.grupo1.trabajoapirest.listaFragment"
+        android:name="com.grupo1.trabajoapirest.listaPelisFragment"
         android:label="fragment_lista"
         tools:layout="@layout/fragment_pelis_lista" />
     <fragment

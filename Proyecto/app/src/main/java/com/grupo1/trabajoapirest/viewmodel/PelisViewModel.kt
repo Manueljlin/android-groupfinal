@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 class PelisViewModel: ViewModel() {
 
     private val repositorio by lazy { Repositorio() }
-    val popularMovies by lazy { MutableLiveData<MoviesList>() }
+    val popularMovies = MutableLiveData<MoviesList>()
     val selectedMovie = MutableLiveData<Movie>()
 
     val popularPeople by lazy { MutableLiveData<PeopleList>() }
