@@ -1,10 +1,12 @@
 package com.grupo1.trabajoapirest.retrofit
 
 import com.grupo1.trabajoapirest.API_KEY
+import com.grupo1.trabajoapirest.dataclass.Movies.GetApiConfiguration.ApiConfiguration
 import com.grupo1.trabajoapirest.dataclass.Movies.GetMovieImages.MovieImages
 import com.grupo1.trabajoapirest.dataclass.Movies.Movie
 import com.grupo1.trabajoapirest.dataclass.Movies.MoviesList
 import com.grupo1.trabajoapirest.dataclass.People.GetPersonDetails.Person
+import com.grupo1.trabajoapirest.dataclass.People.GetPersonImages.PersonImages
 import com.grupo1.trabajoapirest.dataclass.People.GetPopularPeople.PeopleList
 import retrofit2.Response
 import retrofit2.http.GET
@@ -64,7 +66,7 @@ interface RetrofitService {
      * @author Manuel
      * @see <a href="https://developers.themoviedb.org/3/movies/get-popular-movies">Reference</a>
      */
-    @GET("/movie/{movie_id}/images")
+    @GET("movie/{movie_id}/images")
     suspend fun getMovieImages(
         @Path("movie_id")  movie_id: Int,
         @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
@@ -103,10 +105,44 @@ interface RetrofitService {
      * @author Manuel
      * @see <a href="https://developers.themoviedb.org/3/people/get-popular-people">Reference</a>
      */
-    @GET("movie/popular")
+    @GET("person/popular")
     suspend fun getPopularPeople(
         @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
         @Query("page")     page: Int = 1
     ): Response<PeopleList>
+
+
+    /**
+     * Get a Person's Images
+     * @param person_id
+     * @param api_key?
+     * @return PersonImages
+     *
+     * @author Manuel
+     * @see <a href="https://developers.themoviedb.org/3/people/get-person-images">Reference</a>
+     */
+    @GET("person/{person_id}/images")
+    suspend fun getPersonImages(
+        @Path("person_id") person_id: Int,
+        @Query("api_key")  api_key: String = API_KEY.MovieApiToken
+    ): Response<PersonImages>
+
+
+//
+//  API CONFIGURATION ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//
+    /**
+     * Get Api Configuration
+     * @param api_key?
+     *
+     * @return PersonImages
+     *
+     * @author Manuel
+     * @see <a href="https://developers.themoviedb.org/3/people/get-person-images">Reference</a>
+     */
+    @GET("configuration")
+    suspend fun getApiConfiguration(
+        @Query("api_key")  api_key: String = API_KEY.MovieApiToken
+    ): Response<ApiConfiguration>
 }
