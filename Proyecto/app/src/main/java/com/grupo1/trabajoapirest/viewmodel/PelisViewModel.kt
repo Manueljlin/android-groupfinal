@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class PelisViewModel: ViewModel() {
 
     private val repositorio by lazy { Repositorio() }
-    private val popularMovies by lazy { MutableLiveData<MoviesList>() }
+    val popularMovies by lazy { MutableLiveData<MoviesList>() }
 
     fun getPopularMovies(page: Int) {
         CoroutineScope(Dispatchers.IO).launch {
