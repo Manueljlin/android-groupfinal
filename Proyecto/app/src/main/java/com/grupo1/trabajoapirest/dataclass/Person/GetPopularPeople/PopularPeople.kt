@@ -1,4 +1,4 @@
-package com.grupo1.trabajoapirest.dataclass2
+package com.grupo1.trabajoapirest.dataclass.Person.GetPopularPeople
 
 
 import com.google.gson.annotations.SerializedName
@@ -6,11 +6,11 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class Pelis2(
+data class PopularPeople(
     @SerializedName("page")
     val page: Int?,
     @SerializedName("results")
-    val results: List<ListaPelis2>?,
+    val results: List<Result>?,
     @SerializedName("total_pages")
     val totalPages: Int?,
     @SerializedName("total_results")

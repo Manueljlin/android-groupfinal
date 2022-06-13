@@ -1,13 +1,12 @@
-package com.grupo1.trabajoapirest.dataclass.ActorsImages
+package com.grupo1.trabajoapirest.dataclass.Movies.GetMovieImages
 
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
-import kotlinx.parcelize.RawValue
 
 @Parcelize
-data class Profile(
+data class Poster(
     @SerializedName("aspect_ratio")
     val aspectRatio: Double?,
     @SerializedName("file_path")
@@ -15,7 +14,7 @@ data class Profile(
     @SerializedName("height")
     val height: Int?,
     @SerializedName("iso_639_1")
-     val iso6391: String?,
+    val iso6391: String?,
     @SerializedName("vote_average")
     val voteAverage: Double?,
     @SerializedName("vote_count")

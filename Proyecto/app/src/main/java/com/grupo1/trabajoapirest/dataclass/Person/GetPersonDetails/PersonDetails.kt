@@ -1,13 +1,12 @@
-package com.grupo1.trabajoapirest.dataclass.Actors
+package com.grupo1.trabajoapirest.dataclass.Person.GetPersonDetails
 
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
-import kotlinx.parcelize.RawValue
 
 @Parcelize
-data class actores(
+data class PersonDetails(
     @SerializedName("adult")
     val adult: Boolean?,
     @SerializedName("also_known_as")
@@ -21,7 +20,7 @@ data class actores(
     @SerializedName("gender")
     val gender: Int?,
     @SerializedName("homepage")
-    val homepage:String?,
+    val homepage: String?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("imdb_id")

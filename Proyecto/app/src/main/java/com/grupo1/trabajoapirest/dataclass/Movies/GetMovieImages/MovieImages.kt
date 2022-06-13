@@ -1,4 +1,4 @@
-package com.grupo1.trabajoapirest.dataclass.MoviesImages
+package com.grupo1.trabajoapirest.dataclass.Movies.GetMovieImages
 
 
 import com.google.gson.annotations.SerializedName
@@ -6,11 +6,11 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class movieimages(
-    @SerializedName("backdrops")
+data class MovieImages(
+	@SerializedName("backdrops")
     val backdrops: List<Backdrop>?,
-    @SerializedName("id")
+	@SerializedName("id")
     val id: Int?,
-    @SerializedName("posters")
+	@SerializedName("posters")
     val posters: List<Poster>?
 ) : Parcelable

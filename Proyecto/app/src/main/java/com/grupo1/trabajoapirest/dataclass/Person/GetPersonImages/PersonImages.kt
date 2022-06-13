@@ -1,4 +1,4 @@
-package com.grupo1.trabajoapirest.dataclass.ActorsImages
+package com.grupo1.trabajoapirest.dataclass.Person.GetPersonImages
 
 
 import com.google.gson.annotations.SerializedName
@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class actorsimages(
+data class PersonImages(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("profiles")

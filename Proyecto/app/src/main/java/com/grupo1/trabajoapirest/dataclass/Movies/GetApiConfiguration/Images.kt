@@ -1,4 +1,4 @@
-package com.grupo1.trabajoapirest.dataclass.Configuration
+package com.grupo1.trabajoapirest.dataclass.Movies.GetApiConfiguration
 
 
 import com.google.gson.annotations.SerializedName
