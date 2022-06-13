@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class MovieDetails(
+data class Movie(
     @SerializedName("adult")
     val adult: Boolean?,
     @SerializedName("backdrop_path")
