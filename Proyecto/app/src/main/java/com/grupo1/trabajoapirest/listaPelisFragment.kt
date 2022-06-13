@@ -17,7 +17,9 @@ class listaPelisFragment: Fragment() {
 
 	private lateinit var binding: FragmentPelisListaBinding
 	private lateinit var adapter: PelisAdapter
-	private var pelisVm: PelisViewModel by activityViewModels()
+	private val pelisVm: PelisViewModel by activityViewModels<PelisViewModel> {
+		PelisViewModel.MyViewModelFactory(requireActivity().application)
+	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 		setHasOptionsMenu(true)
@@ -33,7 +35,7 @@ class listaPelisFragment: Fragment() {
 		configRecycler()
 
 		pelisVm.popularMovies.observe(viewLifecycleOwner){
-			adapter.actualizaLista(it)
+			adapter.actualizaLista(it.results as ArrayList<Movie>)
 		}
 	}
 
@@ -42,8 +44,8 @@ class listaPelisFragment: Fragment() {
 		val recyclerView = binding.rvPelis
 		adapter = PelisAdapter(object : PelisAdapter.PeliClickListener{
 			override fun OnClick(peli: Movie) {
-				pelisVm.peliSeleccionada.value = Movie
-				findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+				pelisVm.selectedMovie.value = peli
+				//findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 			}
 		})
 		val layoutManager = LinearLayoutManager(requireContext())

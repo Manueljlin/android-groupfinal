@@ -1,7 +1,9 @@
 package com.grupo1.trabajoapirest.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.grupo1.trabajoapirest.dataclass.Movies.Movie
 import com.grupo1.trabajoapirest.dataclass.Movies.MoviesList
 import com.grupo1.trabajoapirest.dataclass.People.GetPersonDetails.Person
@@ -47,4 +49,13 @@ class PelisViewModel: ViewModel() {
     }
 
 
+    // esta clase funciona como un constructor del viewmodel
+    class MyViewModelFactory(val application: Application): ViewModelProvider.Factory
+    {
+        override fun <T: ViewModel?> create(modelClass: Class<T>): T
+        {
+            return modelClass.getConstructor(Application::class.java)
+                .newInstance(application)
+        }
+    }
 }
