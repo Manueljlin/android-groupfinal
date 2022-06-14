@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,6 +14,12 @@ import com.grupo1.trabajoapirest.dataclass.Movies.GetApiConfiguration.ApiConfigu
 import com.grupo1.trabajoapirest.dataclass.Movies.GetMovieGenres.MovieGenres
 import com.grupo1.trabajoapirest.dataclass.Movies.Movie
 import com.grupo1.trabajoapirest.viewmodel.PelisViewModel
+import dev.chrisbanes.insetter.Insetter
+import dev.chrisbanes.insetter.Side.BOTTOM
+import dev.chrisbanes.insetter.Side.LEFT
+import dev.chrisbanes.insetter.Side.RIGHT
+import dev.chrisbanes.insetter.Side.TOP
+import dev.chrisbanes.insetter.windowInsetTypesOf
 
 
 class listaPelisFragment: Fragment() {
@@ -26,6 +33,36 @@ class listaPelisFragment: Fragment() {
 		binding = FragmentPelisListaBinding.inflate(inflater,container, false)
 		(requireActivity() as MainActivity).changeToolbar(binding.toolbar, false)
 		(requireActivity() as MainActivity).changeToolbarTitle("Películas")
+
+		with (Insetter) {
+			// Make the toolbar title not go below the notch or navigation bar
+			// when using the device in horizontal mode
+//			builder()
+//				.padding(
+//					windowInsetTypesOf(
+//						navigationBars = true, statusBars = true, displayCutout = true
+//					), LEFT + RIGHT
+//				)
+//				.margin(
+//					windowInsetTypesOf(statusBars = true),
+//					TOP
+//				)
+//				.applyToView(binding.appbarlayout)
+//
+//			// Make the scroll view not get obscured by the diffuse area
+//			builder()
+//				.margin(
+//					windowInsetTypesOf(navigationBars = true, displayCutout = true),
+//					LEFT + RIGHT
+//				)
+//				.padding(
+//					windowInsetTypesOf(navigationBars = true),
+//					BOTTOM
+//				)
+//				.applyToView(binding.nestedScrollView)
+		}
+
+
 		return binding.root
 	}
 
@@ -48,7 +85,7 @@ class listaPelisFragment: Fragment() {
 		adapter = PelisAdapter(object : PelisAdapter.PeliClickListener{
 			override fun OnClick(peli: Movie) {
 				pelisVm.selectedMovie.value = peli
-				findNavController().navigate(R.id.action_listaPelisFragment_to_fragment_detalle_pelis)
+				findNavController().navigate(R.id.action_listaPelisFragment_to_detallePeliFragment)
 			}
 		}, pelisVm )
 

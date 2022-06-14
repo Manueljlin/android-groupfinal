@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.grupo1.trabajoapirest.databinding.ActivityMainBinding
 
 class MainActivity: AppCompatActivity() {
@@ -18,13 +19,23 @@ class MainActivity: AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?)
 	{
 		super.onCreate(savedInstanceState)
+
+		// In this activity, extend content beyond window
 		WindowCompat.setDecorFitsSystemWindows(window,false)
+
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
 		val navController = findNavController(R.id.fragmentContainerView)
-		appBarConfiguration = AppBarConfiguration(navController.graph)
+		appBarConfiguration = AppBarConfiguration(
+			setOf(
+				R.id.listaPelisFragment,
+				R.id.listaSeriesFragment,
+				R.id.listaPersonasFragment
+			)
+		)
 //		setupActionBarWithNavController(navController, appBarConfiguration)
+		binding.bottomNavigation.setupWithNavController(navController)
 	}
 
 	override fun onSupportNavigateUp(): Boolean {

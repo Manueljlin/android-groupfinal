@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llMovieBrief"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="24dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTagline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Tagline text"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            tools:text="Tagline" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="12"
+            android:text="Overview text"
+            tools:text="@tools:sample/lorem/random" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llStatsGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="24dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStatsGroupHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="Estadísticas"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+        <com.grupo1.trabajoapirest.utils.RoundedLinearLayout
+            android:id="@+id/llStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/material_dynamic_secondary90"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/ivRevenue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_baseline_attach_money_24" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRevenue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="Ingresos"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRevenueValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:text="1$"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <include layout="@layout/horizontal_spacer" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/material_dynamic_secondary90"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/ivPopularity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_baseline_whatshot_24" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPopularity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="Popularidad"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPopularityValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:text="5"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <include layout="@layout/horizontal_spacer" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/material_dynamic_secondary90"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/ivVotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_baseline_star_24" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="2dp"
+                    android:text="Nota media"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVotesValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:text="4.5"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+        </com.grupo1.trabajoapirest.utils.RoundedLinearLayout>
+    </LinearLayout>
+</LinearLayout>

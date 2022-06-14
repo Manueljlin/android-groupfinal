@@ -8,20 +8,26 @@
     <fragment
         android:id="@+id/listaPelisFragment"
         android:name="com.grupo1.trabajoapirest.listaPelisFragment"
-        android:label="fragment_lista"
+        android:label="fragment_pelis_lista"
         tools:layout="@layout/fragment_pelis_lista" >
         <action
-            android:id="@+id/action_listaPelisFragment_to_fragment_detalle_pelis"
-            app:destination="@id/fragment_detalle_pelis" />
+            android:id="@+id/action_listaPelisFragment_to_detallePeliFragment"
+            app:destination="@id/detallePeliFragment"
+            app:popUpTo="@id/listaPelisFragment" />
     </fragment>
     <fragment
-        android:id="@+id/actorFragment"
-        android:name="com.grupo1.trabajoapirest.actorFragment"
-        android:label="fragment_actor"
-        tools:layout="@layout/fragment_actor" />
+        android:id="@+id/detallePeliFragment"
+        android:name="com.grupo1.trabajoapirest.detallePeliFragment"
+        android:label="fragment_peli_detalle"
+        tools:layout="@layout/fragment_peli_detalle" />
     <fragment
-        android:id="@+id/fragment_detalle_pelis"
-        android:name="com.grupo1.trabajoapirest.fragment_detalle_pelis"
-        android:label="fragment_detalle_pelis"
-        tools:layout="@layout/fragment_detalle_pelis" />
+        android:id="@+id/listaPersonasFragment"
+        android:name="com.grupo1.trabajoapirest.listaPersonasFragment"
+        android:label="fragment_lista_personas"
+        tools:layout="@layout/fragment_lista_personas" />
+    <fragment
+        android:id="@+id/listaSeriesFragment"
+        android:name="com.grupo1.trabajoapirest.listaSeriesFragment"
+        android:label="fragment_lista_series"
+        tools:layout="@layout/fragment_lista_series" />
 </navigation>
