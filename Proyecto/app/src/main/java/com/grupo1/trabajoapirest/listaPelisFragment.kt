@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.grupo1.trabajoapirest.databinding.FragmentPelisListaBinding
 import com.grupo1.trabajoapirest.dataclass.Movies.GetApiConfiguration.ApiConfiguration
@@ -47,7 +48,7 @@ class listaPelisFragment: Fragment() {
 		adapter = PelisAdapter(object : PelisAdapter.PeliClickListener{
 			override fun OnClick(peli: Movie) {
 				pelisVm.selectedMovie.value = peli
-				//findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+				findNavController().navigate(R.id.action_listaPelisFragment_to_fragment_detalle_pelis)
 			}
 		}, pelisVm )
 
