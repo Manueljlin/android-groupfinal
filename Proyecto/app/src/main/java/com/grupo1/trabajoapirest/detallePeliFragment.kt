@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
+import com.google.android.material.transition.MaterialContainerTransform
 import com.grupo1.trabajoapirest.databinding.FragmentPeliDetalleBinding
 import com.grupo1.trabajoapirest.viewmodel.PelisViewModel
 import dev.chrisbanes.insetter.Insetter
@@ -19,6 +20,12 @@ class detallePeliFragment : Fragment() {
 
 	private lateinit var binding: FragmentPeliDetalleBinding
 	private val PelisViewModel: PelisViewModel by activityViewModels()
+
+	override fun onCreate(savedInstanceState: Bundle?)
+	{
+		//sharedElementEnterTransition = MaterialContainerTransform()
+		super.onCreate(savedInstanceState)
+	}
 
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,

@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsets
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.google.android.material.transition.MaterialContainerTransform
+import com.grupo1.trabajoapirest.databinding.FragmentPeliDetalleBinding
 import com.grupo1.trabajoapirest.databinding.FragmentPelisListaBinding
 import com.grupo1.trabajoapirest.dataclass.Movies.GetApiConfiguration.ApiConfiguration
 import com.grupo1.trabajoapirest.dataclass.Movies.GetMovieGenres.MovieGenres
@@ -82,9 +85,11 @@ class listaPelisFragment: Fragment() {
 	private fun configRecycler(pelisVm: PelisViewModel) {
 		val recyclerView = binding.rvPelis
 
+		//val extras = FragmentNavigatorExtras(view!! to "toolbar_pelistransition")
 		adapter = PelisAdapter(object : PelisAdapter.PeliClickListener{
 			override fun OnClick(peli: Movie) {
 				pelisVm.selectedMovie.value = peli
+				//findNavController().navigate(R.id.action_listaPelisFragment_to_detallePeliFragment, null, null, extras)
 				findNavController().navigate(R.id.action_listaPelisFragment_to_detallePeliFragment)
 			}
 		}, pelisVm )

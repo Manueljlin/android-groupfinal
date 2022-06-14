@@ -12,7 +12,9 @@
         android:id="@+id/appbarlayout"
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
+<!--        android:transitionName="toolbar_pelistransition"-->
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingtoolbarlayout"
