@@ -9,6 +9,11 @@ import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
 import com.grupo1.trabajoapirest.databinding.FragmentPeliDetalleBinding
 import com.grupo1.trabajoapirest.viewmodel.PelisViewModel
+import dev.chrisbanes.insetter.Insetter
+import dev.chrisbanes.insetter.Side.LEFT
+import dev.chrisbanes.insetter.Side.RIGHT
+import dev.chrisbanes.insetter.Side.TOP
+import dev.chrisbanes.insetter.windowInsetTypesOf
 
 class detallePeliFragment : Fragment() {
 
@@ -21,6 +26,18 @@ class detallePeliFragment : Fragment() {
 	): View? {
 		binding = FragmentPeliDetalleBinding.inflate(inflater, container, false)
 		(requireActivity() as MainActivity).changeToolbar(binding.toolbar, true)
+
+		with (Insetter) {
+			// Make the toolbar title not go below the notch or navigation bar
+			// when using the device in horizontal mode
+			builder()
+				.padding(
+					windowInsetTypesOf(
+						navigationBars = true, statusBars = true, displayCutout = true
+					), LEFT + RIGHT + TOP
+				)
+				.applyToView(binding.appbarlayout)
+		}
 		return binding.root
 	}
 
