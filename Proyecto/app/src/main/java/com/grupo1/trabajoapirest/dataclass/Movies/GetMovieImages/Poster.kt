@@ -1,13 +1,12 @@
-package com.grupo1.trabajoapirest.dataclass.MoviesImages
+package com.grupo1.trabajoapirest.dataclass.Movies.GetMovieImages
 
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
-import kotlinx.parcelize.RawValue
 
 @Parcelize
-data class Backdrop(
+data class Poster(
     @SerializedName("aspect_ratio")
     val aspectRatio: Double?,
     @SerializedName("file_path")
@@ -17,7 +16,7 @@ data class Backdrop(
     @SerializedName("iso_639_1")
     val iso6391: String?,
     @SerializedName("vote_average")
-    val voteAverage: Int?,
+    val voteAverage: Double?,
     @SerializedName("vote_count")
     val voteCount: Int?,
     @SerializedName("width")

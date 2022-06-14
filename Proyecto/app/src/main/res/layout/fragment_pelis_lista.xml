@@ -44,7 +44,8 @@
             android:id="@+id/rvPelis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false" />
+            android:clipToPadding="false"
+            android:padding="12dp" />
     </androidx.core.widget.NestedScrollView>
 
 
