@@ -51,7 +51,7 @@ class PelisAdapter(val listener: PeliClickListener, val pelisVm: PelisViewModel)
             else this.visibility = View.INVISIBLE
         }
 
-        val base_url  = api_configuration?.images?.baseUrl ?: "https://image.tmdb.org/t/p/"
+        val base_url  = api_configuration?.images?.secureBaseUrl ?: "https://image.tmdb.org/t/p/"
         val size      = api_configuration?.images?.posterSizes?.get(-2) ?: "w780"
 
         val imageUrl: String = "${base_url}${size}${peli.posterPath}"
