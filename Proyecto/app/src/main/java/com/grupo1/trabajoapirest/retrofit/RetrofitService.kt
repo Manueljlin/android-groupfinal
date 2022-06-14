@@ -2,6 +2,7 @@ package com.grupo1.trabajoapirest.retrofit
 
 import com.grupo1.trabajoapirest.API_KEY
 import com.grupo1.trabajoapirest.dataclass.Movies.GetApiConfiguration.ApiConfiguration
+import com.grupo1.trabajoapirest.dataclass.Movies.GetMovieGenres.MovieGenres
 import com.grupo1.trabajoapirest.dataclass.Movies.GetMovieImages.MovieImages
 import com.grupo1.trabajoapirest.dataclass.Movies.Movie
 import com.grupo1.trabajoapirest.dataclass.Movies.MoviesList
@@ -30,7 +31,7 @@ interface RetrofitService {
     @GET("movie/{movie_id}")
     suspend fun getMovieDetails(
         @Path("movie_id")  movie_id: Int,
-        @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
+        @Query("api_key")  api_key: String  = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES"
     ): Response<Movie>
 
@@ -48,7 +49,7 @@ interface RetrofitService {
      */
     @GET("movie/popular")
     suspend fun getPopularMovies(
-        @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
+        @Query("api_key")  api_key: String  = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
         @Query("page")     page: Int = 1
     ): Response<MoviesList>
@@ -69,9 +70,27 @@ interface RetrofitService {
     @GET("movie/{movie_id}/images")
     suspend fun getMovieImages(
         @Path("movie_id")  movie_id: Int,
-        @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
+        @Query("api_key")  api_key: String  = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
     ): Response<MovieImages>
+
+
+    /**
+     * Get all Movie Genres
+     * -- NOTE: CONCAT WITH BASE URL FROM getApiConfiguration TO COMPLETE THE URL
+     * -- NOTE: NO OPTIONAL include_image_language PARAM INCLUDED
+     * @param api_key?
+     * @param language?
+     * @return MovieGenres
+     *
+     * @author Manuel
+     * @see <a href="https://developers.themoviedb.org/3/genres/get-movie-list">Reference</a>
+     */
+    @GET("/genre/movie/list")
+    suspend fun getMovieGenres(
+        @Query("api_key")  api_key: String  = API_KEY.MovieApiToken,
+        @Query("language") language: String = "es-ES",
+    ): Response<MovieGenres>
 
 
 //
@@ -90,7 +109,7 @@ interface RetrofitService {
     @GET("person/{person_id}")
     suspend fun getPersonDetails(
         @Path("person_id") person_id: Int,
-        @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
+        @Query("api_key")  api_key: String  = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES"
     ): Response<Person>
 
@@ -107,7 +126,7 @@ interface RetrofitService {
      */
     @GET("person/popular")
     suspend fun getPopularPeople(
-        @Query("api_key")  api_key: String = API_KEY.MovieApiToken,
+        @Query("api_key")  api_key: String  = API_KEY.MovieApiToken,
         @Query("language") language: String = "es-ES",
         @Query("page")     page: Int = 1
     ): Response<PeopleList>
@@ -136,13 +155,13 @@ interface RetrofitService {
      * Get Api Configuration
      * @param api_key?
      *
-     * @return PersonImages
+     * @return ApiConfiguration
      *
      * @author Manuel
-     * @see <a href="https://developers.themoviedb.org/3/people/get-person-images">Reference</a>
+     * @see <a href="https://developers.themoviedb.org/3/configuration/get-api-configuration">Reference</a>
      */
     @GET("configuration")
     suspend fun getApiConfiguration(
-        @Query("api_key")  api_key: String = API_KEY.MovieApiToken
+        @Query("api_key") api_key: String = API_KEY.MovieApiToken
     ): Response<ApiConfiguration>
 }

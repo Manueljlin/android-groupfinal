@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.grupo1.trabajoapirest.databinding.FragmentPelisListaBinding
+import com.grupo1.trabajoapirest.dataclass.Movies.GetApiConfiguration.ApiConfiguration
+import com.grupo1.trabajoapirest.dataclass.Movies.GetMovieGenres.MovieGenres
 import com.grupo1.trabajoapirest.dataclass.Movies.Movie
 import com.grupo1.trabajoapirest.viewmodel.PelisViewModel
 
@@ -31,22 +31,26 @@ class listaPelisFragment: Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
-		configRecycler()
+		configRecycler(pelisVm)
 
-		pelisVm.getPopularMovies(0)
-		pelisVm.popularMovies.observe(viewLifecycleOwner){
+		pelisVm.getPopularMovies(1)
+		// cambiar el valor de page ^ en el adapter para ir cambiando de
+		// página al hacer scroll en el recyclerview
+		pelisVm.popularMovies.observe(viewLifecycleOwner) {
 			adapter.actualizaLista(it.results as ArrayList<Movie>)
 		}
 	}
 
-	private fun configRecycler() {
+	private fun configRecycler(pelisVm: PelisViewModel) {
 		val recyclerView = binding.rvPelis
+
 		adapter = PelisAdapter(object : PelisAdapter.PeliClickListener{
 			override fun OnClick(peli: Movie) {
 				pelisVm.selectedMovie.value = peli
 				//findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 			}
-		})
+		}, pelisVm )
+
 		val layoutManager = GridLayoutManager(
 			requireContext(),
 			2,

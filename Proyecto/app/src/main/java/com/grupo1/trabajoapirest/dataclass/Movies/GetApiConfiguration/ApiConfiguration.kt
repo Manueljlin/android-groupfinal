@@ -7,8 +7,8 @@ import android.os.Parcelable
 
 @Parcelize
 data class ApiConfiguration(
-    @SerializedName("change_keys")
-    val changeKeys: List<String>?,
     @SerializedName("images")
-    val images: Images?
+    val images: Images,
+    @SerializedName("change_keys")
+    val changeKeys: List<String>
 ) : Parcelable

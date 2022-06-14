@@ -33,7 +33,7 @@
             @android:color/transparent
         </item>
 
-        <!-- Prometer a la aplicación que el fondo de la barra -->
+        <!-- Prometer a la aplicación que el fondo de la barra es claro -->
         <item name="android:windowLightStatusBar">
             true
         </item>

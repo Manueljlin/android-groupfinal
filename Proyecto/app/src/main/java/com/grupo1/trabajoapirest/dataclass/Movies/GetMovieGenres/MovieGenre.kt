@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class Genre(
+data class MovieGenre(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("name")

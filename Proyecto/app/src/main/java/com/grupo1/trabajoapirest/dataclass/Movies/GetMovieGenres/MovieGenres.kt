@@ -8,5 +8,5 @@ import android.os.Parcelable
 @Parcelize
 data class MovieGenres(
     @SerializedName("genres")
-    val genres: List<Genre>?
+    val genres: List<MovieGenre>?
 ) : Parcelable
