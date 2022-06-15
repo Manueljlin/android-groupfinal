@@ -45,4 +45,8 @@
             shortEdges <!-- default, shortEdges, or never -->
         </item>
     </style>
+
+    <style name="Theme.TrabajoApiRest.StatsView" parent="Theme.TrabajoApiRest">
+        <item name="android:background">@color/m3_light_view</item>
+    </style>
 </resources>

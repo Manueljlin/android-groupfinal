@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/material_dynamic_secondary90"
+                style="@style/Theme.TrabajoApiRest.StatsView"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -98,7 +98,7 @@
 
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/material_dynamic_secondary90"
+                style="@style/Theme.TrabajoApiRest.StatsView"
                 android:orientation="vertical"
                 android:padding="16dp">
 
@@ -135,7 +135,7 @@
 
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/material_dynamic_secondary90"
+                style="@style/Theme.TrabajoApiRest.StatsView"
                 android:orientation="vertical"
                 android:padding="16dp">
 
